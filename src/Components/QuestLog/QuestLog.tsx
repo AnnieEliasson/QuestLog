@@ -1,6 +1,8 @@
 //Börja med att quests har id, beskrivning och en flagga för avklarad.
 //Vi ska ha ett antal ofärdiga quests när vi startar appen.
-//Man ska kunna toggla ett quest att vara avklarat eller inte. Det kan vara      checkboxar man klickar i och ur, eller någon annan design.
+//Man ska kunna toggla ett quest att vara avklarat eller inte. Det kan vara
+//checkboxar man klickar i och ur, eller någon annan design.
+
 import data from "./startquests.json";
 import { useReducer, useState } from "react";
 import "./QuestLog.scss";
@@ -44,8 +46,8 @@ const reduce = (quests: Quest[], action: Action): Quest[] => {
         case ACTIONS.EDIT: 
             console.log(action.payload.text);
             return quests.map((q)=>{
+
                 if (q.id === action.payload.id){
-                    
                     return {...q}
                 }
 
@@ -55,15 +57,14 @@ const reduce = (quests: Quest[], action: Action): Quest[] => {
 
         case ACTIONS.SAVEEDIT:
             return quests.map((q)=>{
+
                 if (q.id === action.payload.id){
                     return {...q, description: action.payload.text}
-                    
                 }
 
                 return q
             })
             
-
         case ACTIONS.CLEAR:
             return quests.filter(q => q.complete === false)
     
@@ -92,7 +93,6 @@ function QuestLog() {
     const handleClickEdit = (q: Quest) => {
 
         editBox.classList.add("show")
-
         dispatch({type: ACTIONS.EDIT, payload: {id: q.id, text: q.description}})
         setEdit(q.description)
         setEditID(q.id)
@@ -101,7 +101,6 @@ function QuestLog() {
     const saveEdit = () => {
 
         editBox.classList.remove("show")
-
         dispatch({type: ACTIONS.SAVEEDIT, payload: {id: editID, text: edit}})
         
     }
