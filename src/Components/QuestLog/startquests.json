@@ -1,0 +1,37 @@
+{
+    "startquests" : [
+        { 
+            "id": 1, 
+            "complete": false,
+            "description": "Slay the king" 
+        },
+    
+        {
+            "id": 2,
+            "complete": false,
+            "description": "Collect 10 pink flowers from the meadow"
+    
+        },
+    
+        { 
+            "id": 3, 
+            "complete": false, 
+            "description": "Build a castle" 
+        
+        },
+    
+        { 
+            "id": 4, 
+            "complete": false, 
+            "description": "Research new spell" 
+        
+        },
+    
+        {
+            "id": 5,
+            "complete": true,
+            "description": "Invite friends for tea & coffee"
+    
+        }
+    ]
+}
